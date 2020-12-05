@@ -1,6 +1,5 @@
 fn is_valid(n: i32) -> bool {
-
-    let mut v = vec!(0; 6);
+    let mut v = vec![0; 6];
 
     v[0] = (n / 100000) % 10;
     v[1] = (n / 10000) % 10;
@@ -10,7 +9,7 @@ fn is_valid(n: i32) -> bool {
     v[5] = n % 10;
 
     for p in 0..5 {
-        if v[p] > v[p+1] {
+        if v[p] > v[p + 1] {
             return false;
         }
     }
@@ -20,7 +19,7 @@ fn is_valid(n: i32) -> bool {
     let mut i = 0;
     while i < v.len() {
         let mut repeats = 0;
-        for j in i+1..v.len() {
+        for j in i + 1..v.len() {
             if v[i] == v[j] {
                 repeats += 1;
             } else {
@@ -31,8 +30,7 @@ fn is_valid(n: i32) -> bool {
         i += repeats + 1;
         if repeats == 1 {
             doubles += 1;
-        }
-        else if repeats > 1 {
+        } else if repeats > 1 {
             triple_or_more += 1;
         }
     }
@@ -47,7 +45,6 @@ fn is_valid(n: i32) -> bool {
 }
 
 fn main() {
-
     println!("112233 {}", is_valid(112233));
     println!("123444 {}", is_valid(123444));
     println!("111122 {}", is_valid(111122));

@@ -18,7 +18,6 @@ fn is_valid(n: i32) -> bool {
 }
 
 fn main() {
-
     // println!("111111 {}", is_valid(111111));
     // println!("223450 {}", is_valid(223450));
     // println!("123789 {}", is_valid(123789));
