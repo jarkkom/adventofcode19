@@ -1,0 +1,45 @@
+[package]
+name = "adventofcode-2019"
+version = "0.1.0"
+authors = ["Jarkko Mourujarvi <jarkko@iki.fi>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[[bin]]
+name = "03-01"
+path = "03/part1.rs"
+
+[[bin]]
+name = "03-02"
+path = "03/part2.rs"
+
+[[bin]]
+name = "04-01"
+path = "04/part1.rs"
+
+[[bin]]
+name = "04-02"
+path = "04/part2.rs"
+
+[[bin]]
+name = "08-01"
+path = "08/part1.rs"
+
+[[bin]]
+name = "08-02"
+path = "08/part2.rs"
+
+[[bin]]
+name = "09-01"
+path = "09/part1.rs"
+
+[[bin]]
+name = "09-02"
+path = "09/part2.rs"
+
+[[bin]]
+name = "10-01"
+path = "10/part1.rs"
