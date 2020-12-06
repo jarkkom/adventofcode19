@@ -44,7 +44,7 @@ fn read_input(reader: impl Read) -> Result<Vec<Asteroid>, String> {
     Ok(asteroids)
 }
 
-fn build_visibility_set(base: &Asteroid, roids: &Vec<Asteroid>) -> HashMap<i64, Vec<Asteroid>> {
+fn build_visibility_set(base: &Asteroid, roids: &[Asteroid]) -> HashMap<i64, Vec<Asteroid>> {
     roids
         .iter()
         .filter(|&a| base != a)
@@ -84,7 +84,7 @@ fn main() {
     let mut removed = 1;
     while removed < 201 {
         let mut angles: Vec<i64> = vis.keys().copied().collect();
-        angles.sort();
+        angles.sort_unstable();
 
         for angle in angles {
             let roids = vis.get_mut(&angle).unwrap();

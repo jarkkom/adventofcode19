@@ -14,7 +14,7 @@ fn is_valid(n: i32) -> bool {
         return false;
     }
 
-    return true;
+    true
 }
 
 fn main() {
