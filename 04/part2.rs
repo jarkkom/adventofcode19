@@ -41,7 +41,7 @@ fn is_valid(n: i32) -> bool {
 
     println!("{} {} {}", n, doubles, triple_or_more);
 
-    return true;
+    true
 }
 
 fn main() {

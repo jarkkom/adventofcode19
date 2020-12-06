@@ -11,7 +11,7 @@ impl Routing {
         let mut x_pos = o_x as i32;
         let mut y_pos = o_y as i32;
 
-        let input_parts = input.split(",");
+        let input_parts = input.split(',');
         for segment in input_parts {
             let (direction, count_str) = segment.split_at(1);
             let count = count_str.parse::<i32>().unwrap_or(0);
@@ -39,7 +39,7 @@ impl Routing {
             }
             println!("x_delta {} y_delta {}", x_delta, y_delta);
             for _i in 0..count {
-                self.grid[x_pos as usize][y_pos as usize] |= (1 << tag);
+                self.grid[x_pos as usize][y_pos as usize] |= 1 << tag;
                 x_pos += x_delta;
                 y_pos += y_delta;
             }
@@ -69,8 +69,8 @@ fn main() {
     let height = 45000;
 
     let mut r = Routing {
-        width: width,
-        height: height,
+        width,
+        height,
         grid: vec![vec![0; width]; height],
     };
 

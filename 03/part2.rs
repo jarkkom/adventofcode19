@@ -11,7 +11,7 @@ impl Routing {
         let mut x_pos = o_x as i32;
         let mut y_pos = o_y as i32;
 
-        let input_parts = input.split(",");
+        let input_parts = input.split(',');
         for segment in input_parts {
             let (direction, count_str) = segment.split_at(1);
             let count = count_str.parse::<i32>().unwrap_or(0);
@@ -40,12 +40,8 @@ impl Routing {
             println!("x_delta {} y_delta {}", x_delta, y_delta);
             for _i in 0..count {
                 let key = format!("{}.{}", x_pos, y_pos);
-                if self.grid.contains_key(&key) {
-                    let val = self.grid.get(&key).unwrap_or(&0);
-                    self.grid.insert(key, val | 1 << tag);
-                } else {
-                    self.grid.insert(key, 1 << tag);
-                }
+                let &val = self.grid.get(&key).unwrap_or(&0);
+                self.grid.insert(key, val | 1 << tag);
 
                 x_pos += x_delta;
                 y_pos += y_delta;
@@ -61,7 +57,7 @@ impl Routing {
 
         let mut length = 0;
 
-        let input_parts = input.split(",");
+        let input_parts = input.split(',');
         for segment in input_parts {
             let (direction, count_str) = segment.split_at(1);
             let count = count_str.parse::<i32>().unwrap_or(0);
@@ -94,7 +90,7 @@ impl Routing {
                 y_pos += y_delta;
             }
         }
-        return length;
+        length
     }
 
     pub fn closest_intersection(&self) {
@@ -108,7 +104,7 @@ impl Routing {
                 continue;
             }
             if *val > 2 {
-                let parts: Vec<&str> = key.split(".").collect();
+                let parts: Vec<&str> = key.split('.').collect();
                 let x = parts[0].parse().unwrap_or(o_x);
                 let y = parts[1].parse().unwrap_or(o_y);
                 let manhattan = (x as i32 - o_x as i32).abs() + (y as i32 - o_y as i32).abs();
@@ -138,8 +134,8 @@ fn main() {
     let height = 45000;
 
     let mut r = Routing {
-        width: width,
-        height: height,
+        width,
+        height,
         grid: std::collections::HashMap::new(),
     };
 

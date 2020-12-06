@@ -8,21 +8,21 @@ struct CPU {
 
 impl CPU {
     fn read_value(&mut self, arg: i64, mode: i64) -> i64 {
-        return match mode {
+        match mode {
             0 => self.mem[arg as usize],
             1 => arg,
             2 => self.mem[(self.bp + arg) as usize],
             _ => panic!("invalid read mode"),
-        };
+        }
     }
 
     fn write_value(&mut self, arg: i64, mode: i64) -> i64 {
-        return match mode {
+        match mode {
             0 => arg,
             1 => panic!("invalid write mode"),
             2 => self.bp + arg,
             _ => panic!("invalid write mode"),
-        };
+        }
     }
 
     pub fn execute(&mut self) -> bool {
@@ -156,11 +156,11 @@ impl CPU {
 
                 println!("addbp {} {}", arg_1, value_1);
 
-                self.bp = self.bp + value_1;
+                self.bp += value_1;
                 self.ip += 2;
             }
             99 => {
-                println!("");
+                println!();
                 return false;
             }
             _ => {
@@ -168,16 +168,16 @@ impl CPU {
                 return false;
             }
         }
-        return true;
+        true
     }
 }
 
 fn main() {
-    let mut code01: Vec<i64> = vec![
+    let mut _code01: Vec<i64> = vec![
         109, 1, 204, -1, 1001, 100, 1, 100, 1008, 100, 16, 101, 1006, 101, 0, 99,
     ];
-    let mut code02: Vec<i64> = vec![1102, 34915192, 34915192, 7, 4, 7, 99, 0];
-    let mut code03: Vec<i64> = vec![104, 1125899906842624, 99];
+    let mut _code02: Vec<i64> = vec![1102, 34915192, 34915192, 7, 4, 7, 99, 0];
+    let mut _code03: Vec<i64> = vec![104, 1125899906842624, 99];
 
     let mut code = vec![
         1102, 34463338, 34463338, 63, 1007, 63, 34463338, 63, 1005, 63, 53, 1101, 0, 3, 1000, 109,
@@ -231,9 +231,8 @@ fn main() {
         1, 966, 21201, -2, 0, -2, 109, -3, 2106, 0, 0,
     ];
 
-    for _ in 1..1000000 {
-        code.push(0);
-    }
+    let mut zeroes = vec![0; 1000000];
+    code.append(&mut zeroes);
 
     let mut cpu = CPU {
         mem: code,

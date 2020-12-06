@@ -44,7 +44,7 @@ fn read_input(reader: impl Read) -> Result<Vec<Asteroid>, String> {
     Ok(asteroids)
 }
 
-fn build_visibility_set(base: &Asteroid, roids: &Vec<Asteroid>) -> HashMap<i64, i64> {
+fn build_visibility_set(base: &Asteroid, roids: &[Asteroid]) -> HashMap<i64, i64> {
     roids
         .iter()
         .filter(|&a| base != a)
