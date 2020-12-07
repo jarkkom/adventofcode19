@@ -227,7 +227,7 @@ fn main() {
         mem: code,
         ip: 0,
         bp: 0,
-        input: vec![0],
+        input: vec![1],
         output: Vec::with_capacity(10000),
     };
 
@@ -237,8 +237,8 @@ fn main() {
     let mut white: HashSet<(i64, i64)> = HashSet::new();
     // 0 = up, 1 = right, 2 = down, 3 == left
     let mut direction = 0;
-    let mut x = 0;
-    let mut y = 0;
+    let mut x = 50;
+    let mut y = 50;
 
     while cpu.execute() {
         if cpu.output.len() > 1 {
@@ -285,6 +285,15 @@ fn main() {
             }
         }
     }
-    println!("{:?}", painted);
-    println!("{:?}", painted.len());
+
+    for y in 0..20 {
+        for x in 0..50 {
+            if white.contains(&(50 - x, 55 - y)) {
+                print!("#");
+            } else {
+                print!(".");
+            }
+        }
+        println!();
+    }
 }
