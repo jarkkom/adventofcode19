@@ -49,6 +49,14 @@ name = "10-02"
 path = "10/part2.rs"
 
 [[bin]]
+name = "11-01"
+path = "11/part1.rs"
+
+[[bin]]
+name = "11-02"
+path = "11/part2.rs"
+
+[[bin]]
 name = "12-01"
 path = "12/part1.rs"
 
