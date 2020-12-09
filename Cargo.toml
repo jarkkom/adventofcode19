@@ -63,3 +63,7 @@ path = "12/part1.rs"
 [[bin]]
 name = "12-02"
 path = "12/part2.rs"
+
+[[bin]]
+name = "13-01"
+path = "13/part1.rs"
